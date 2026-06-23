@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>黑板上看不懂的文字：跨國銜轉教育的教學難題</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/a2e0e6ad65.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="window">
+    <div class="top">
+      <div class="header"><div>📁 跨國銜轉學生輔導支持系統</div><div class="flex gap-2"><div class="w-3 h-3 bg-white opacity-50"></div><div class="w-3 h-3 bg-white opacity-50"></div><div class="w-3 h-3 bg-white"></div></div></div>
+      <div class="menu"><span class="report-credit">國立政治大學新聞系《大學報》　【記者黃律齊、林庭如、江虹、蔡得曦報導】</span><span class="ml-auto text-gray-500 font-mono" id="sysTime"></span></div>
+    </div>
+    <div id="modal"></div>
+    <div class="layout">
+      <aside id="sidebar" class="sidebar">
+        <div class="text-xs font-bold text-gray-400 mb-4 uppercase tracking-widest">SESSION INFO</div>
+        <div class="mb-6 bg-gray-200 p-2 rounded"><div class="text-[10px] text-gray-500 mb-1">AUTH_USER</div><div class="font-bold text-blue-900 text-sm truncate" id="currentPersonaDisplay">GUEST</div></div>
+        <div><div class="text-[10px] text-gray-500 mb-1">SYTEM_LOAD_PROGRESS</div><div class="progress"><div id="systemProgressBar" class="bar"></div><span id="progressPercent" class="pct">0%</span></div></div>
+        <div class="mt-8 pt-4 border-t border-gray-200">
+          <div class="text-[10px] text-gray-500 mb-3 uppercase tracking-widest font-bold">SYSTEM MENU</div>
+          <div class="grid gap-3">
+            <button onclick="showModal('case')" class="sys-button sidebar-menu-btn">個案心情(C)</button>
+            <button onclick="showModal('stat')" class="sys-button sidebar-menu-btn">統計報表(S)</button>
+            <button onclick="showModal('teach')" class="sys-button sidebar-menu-btn">相關網站(T)</button>
+            <button onclick="showModal('admin_work')" class="sys-button sidebar-menu-btn">行政作業(A)</button>
+          </div>
+        </div>
+        <div class="mt-8 pt-4 border-t border-gray-200"><button onclick="resetStory()" class="sys-button text-[10px] text-red-700 font-bold bg-white px-3 py-2 rounded w-full text-left">登出系統 (LOGOUT)</button></div>
+      </aside>
+      <main class="content">
+        <div id="personaSection" class="landing landing-static-homepage">
+          <div class="landing-box landing-box-home-image">
+            <div class="homepage-image-wrap homepage-scene-wrap">
+              <img src="./homepage-title-board.jpg" alt="黑板上看不懂的文字：跨國銜轉教育的教學難題" class="homepage-title-image" />
+              <div class="homepage-scene-overlay" aria-hidden="true">
+                <div class="scene-bush-band">
+                  <img src="./scene-bush.png" alt="" class="scene-bush bush-1" />
+                  <img src="./scene-bush.png" alt="" class="scene-bush bush-2" />
+                  <img src="./scene-bush.png" alt="" class="scene-bush bush-3" />
+                  <img src="./scene-bush.png" alt="" class="scene-bush bush-4" />
+                </div>
+                <div class="scene-air-lane lane-single">
+                  <img src="./scene-bricks.png" alt="" class="scene-bricks bricks-a" />
+                  <img src="./scene-question-box.png" alt="" class="scene-question-box qbox-a" />
+                  <img src="./scene-bricks.png" alt="" class="scene-bricks bricks-b" />
+                </div>
+                <div class="scene-conveyor-wrap" aria-hidden="true">
+                  <div class="scene-conveyor-track">
+                    <div class="scene-conveyor-segment">
+                      <div class="scene-conveyor-floor"></div>
+                      <div class="belt-cloud-layer" aria-hidden="true"></div>
+                      <div class="belt-air-layer" aria-hidden="true"></div>
+                      <img src="./ground-bush-teal.png" alt="" class="belt-object belt-teal-1" />
+                      <img src="./ground-bush-lime.png" alt="" class="belt-object belt-lime-1" />
+                      <img src="./ground-pipe-purple.png" alt="" class="belt-object belt-pipe-1" />
+                      <img src="./ground-bush-teal.png" alt="" class="belt-object belt-teal-2" />
+                      <img src="./ground-bush-lime.png" alt="" class="belt-object belt-lime-2" />
+                      <img src="./ground-bush-teal.png" alt="" class="belt-object belt-teal-3" />
+                      <img src="./ground-bush-lime.png" alt="" class="belt-object belt-lime-3" />
+                      <img src="./ground-pipe-purple.png" alt="" class="belt-object belt-pipe-3" />
+                      <img src="./ground-bush-teal.png" alt="" class="belt-object belt-teal-4" />
+                      <img src="./ground-bush-lime.png" alt="" class="belt-object belt-lime-4" />
+                      <img src="./ground-bush-teal.png" alt="" class="belt-object belt-teal-5" />
+                    </div>
+                    <div class="scene-conveyor-segment">
+                      <div class="scene-conveyor-floor"></div>
+                      <div class="belt-cloud-layer" aria-hidden="true"></div>
+                      <div class="belt-air-layer" aria-hidden="true"></div>
+                      <img src="./ground-bush-teal.png" alt="" class="belt-object belt-teal-1" />
+                      <img src="./ground-bush-lime.png" alt="" class="belt-object belt-lime-1" />
+                      <img src="./ground-pipe-purple.png" alt="" class="belt-object belt-pipe-1" />
+                      <img src="./ground-bush-teal.png" alt="" class="belt-object belt-teal-2" />
+                      <img src="./ground-bush-lime.png" alt="" class="belt-object belt-lime-2" />
+                      <img src="./ground-bush-teal.png" alt="" class="belt-object belt-teal-3" />
+                      <img src="./ground-bush-lime.png" alt="" class="belt-object belt-lime-3" />
+                      <img src="./ground-pipe-purple.png" alt="" class="belt-object belt-pipe-3" />
+                      <img src="./ground-bush-teal.png" alt="" class="belt-object belt-teal-4" />
+                      <img src="./ground-bush-lime.png" alt="" class="belt-object belt-lime-4" />
+                      <img src="./ground-bush-teal.png" alt="" class="belt-object belt-teal-5" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="scene-live-conveyor" aria-hidden="true">
+                  <div class="live-floor"></div>
+                  <div class="live-cloud-layer"></div>
+                  <div class="live-air-layer"></div>
+                  <div class="live-ground-layer"></div>
+                  <div class="live-book-layer"></div>
+                </div>
+
+                <div class="scene-runner-zone">
+                  <div class="runner-sprite-cycle">
+                    <img src="./runner-1.png" alt="" class="runner-frame frame-1" />
+                    <img src="./runner-2.png" alt="" class="runner-frame frame-2" />
+                    <img src="./runner-3.png" alt="" class="runner-frame frame-3" />
+                    <img src="./runner-4.png" alt="" class="runner-frame frame-4" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="landing-choice-prompt">請選擇一個視角進行體驗</div>
+            <div class="landing-choice-row landing-choice-row-static">
+              <button onclick="selectPersona('student')" class="sys-button persona-choice-card">
+                <span class="persona-choice-copy"><strong>跨國銜轉生</strong></span>
+              </button>
+              <button onclick="selectPersona('teacher')" class="sys-button persona-choice-card">
+                <span class="persona-choice-copy"><strong>一般正式老師</strong></span>
+              </button>
+              <button onclick="selectPersona('supporter')" class="sys-button persona-choice-card">
+                <span class="persona-choice-copy"><strong>華語扶助教師</strong></span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div id="articleContent" class="max-w-2xl mx-auto">
+          <section id="roleIntroSection" class="locked mb-12">
+            <div id="roleIntroCard" class="role-intro-card"></div>
+          </section>
+
+          <section id="chapter1" class="locked mb-12">
+            <div class="bg-blue-900 text-white px-3 py-1 text-xs font-mono inline-block mb-4">FILE_01: 現況與入學機制</div>
+            <h2 class="text-xl font-bold mb-4 border-b-2 border-blue-900 pb-2">跨越國界的學習斷層</h2>
+            <p class="mb-4">「塑膠字卡正面寫著中文『西瓜』，背面則標示注音與圖片。」來自越南的達達（化名）回憶，11歲返臺降級就讀時，光注音就學了三個月。他在母國生活多年，迎面而來的卻是全然陌生的環境。</p>
+            <p class="mb-4">根據教育部統計，113學年度高中以下新住民在學子女共26.5萬人，佔全體學生6.7%。而在新二代學生中，有一群人的處境更複雜──他們被稱為<span class="inline-term"><button type="button" class="inline-trigger" aria-label="跨國銜轉學生名詞說明"><span>「跨國銜轉學生」</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></button><span class="tip">「跨國銜轉」指新住民子女曾在海外生活後返臺就學，因華語不足致學習與適應困難。其家庭多為雙外籍或臺外配組成，幼年被送回母國由親屬照料，後因居留屆滿等因素返臺。</span></span>（以下簡稱跨轉生）。</p>
+            <p class="mb-6">他們帶著在母國生活多年的記憶與習慣踏上臺灣，迎面而來的卻是全然陌生的環境。曾在越南完成小學教育、返臺後從五年級重新銜接的跨轉生王宜靜回憶，自己當時幾乎沒有中文能力。她聽不懂老師上課，看不懂考卷內容，第一份中文考卷掛零，但老師又難以單獨為他調整授課方式，「我就只能一個人消化。」他說。同樣來自越南、返臺後也曾降級就讀的達達則認為，「最困難的問題是沒辦法表達出自己的問題。」因此在課堂上，他只能發呆，或在筆記本上畫畫。由於沒有人真正理解他的處境，他只能一再告訴自己：「算了。」</p>
+            <div id="countryQuizSection" class="bg-yellow-50 p-6 border-2 border-yellow-300 my-8 shadow-inner">
+              <div class="text-[10px] font-mono text-amber-800 mb-2">[SYSTEM_DATA_CHECK_01]</div>
+              <h3 class="font-bold mb-4 text-sm">猜猜看：來自哪個國家的跨轉生最多？</h3>
+              <div id="countryQuizContent" class="grid gap-2 transition-colors duration-300">
+                <button onclick="submitCountryQuiz(false,this)" class="sys-button bg-white p-3 text-xs text-left country-option">A. 菲律賓</button>
+                <button onclick="submitCountryQuiz(false,this)" class="sys-button bg-white p-3 text-xs text-left country-option">B. 美國</button>
+                <button onclick="submitCountryQuiz(false,this)" class="sys-button bg-white p-3 text-xs text-left country-option">C. 印尼</button>
+                <button onclick="submitCountryQuiz(true,this)" class="sys-button bg-white p-3 text-xs text-left country-option correct-country-option">D. 越南</button>
+              </div>
+              <div id="countryQuizResult" class="hidden mt-4 p-4 bg-white border-l-4 border-amber-500">
+                <p id="countryQuizFeedbackText" class="text-xs"></p>
+                <div id="countryCharts" class="hidden mt-5">
+                  <div class="chart-card p-4">
+                    <div class="font-bold text-sm text-gray-800 text-center mb-1">跨轉生來臺前居住國</div>
+                    <div id="beforeCountryChart" class="pie-shell"></div>
+                    <div class="mt-3 text-[10px] leading-relaxed text-gray-500 text-right">圖表製作／ 黃律齊　資料來源／ 教育部國民及學前教育署新住民子女教育網</div>
+                  </div>
+                </div>
+                <div class="mt-4 flex flex-wrap gap-3"><button onclick="showPersonaQuiz()" class="sys-button bg-white text-black px-4 py-2 text-[10px]">繼續閱讀個案處境</button><button onclick="showModal('stat')" class="sys-button bg-blue-900 text-white px-4 py-2 text-[10px] border border-blue-900">查看更多統計數據</button></div>
+              </div>
+            </div>
+            <div id="chapter1Narrative" class="hidden">
+              <p class="mb-6">對跨轉生來說，進入臺灣校園後，語言、教材，甚至老師與同學聊天的方式，都可能變成新的門檻。在此方面，各縣市並非全無因應。以台北市為例，跨轉生申請入學後，學校須召開「習得會議」，由跨處室人員與家長共同討論個別方案；若涉及降轉，尚有專家列席評估。會後，學校再進行編班，並安排後續適性輔導。依教育部國民及學前教育署規定，跨轉生缺乏基礎華語表達溝通能力者可申請「華語文學習扶助課程」，每班最高可獲244節免費的扶助課程（上、下學期至多各72節、暑假80節、寒假20節），112學年度共計439名學生申請。</p>
+              <div id="personaCheckpoint1" class="persona-card my-8"></div>
+              <div id="bbModule" class="bb-root my-8 hidden">
+                <div class="flex items-center justify-between mb-2 gap-3 flex-wrap"><div class="chip">LANGUAGE EXPERIENCE MODULE / FILE_01-A</div><div class="text-[10px] font-mono tracking-[0.14em] text-blue-900 bg-white border border-blue-900 px-3 py-1">BLACKBOARD DECODER / LIVE</div></div>
+                <div id="bb-start" class="bb-panel p-4 md:p-5 mb-3 text-center">
+                  <div class="bb-photo-cover-shell">
+                    <img src="blackboard-heaven-cover.png" alt="黑板上的天書首圖" class="bb-photo-cover-image">
+                    <div class="bb-photo-cover-actions">
+                      <button onclick="bbShowIntro()" class="sys-button bg-blue-900 text-white px-8 py-3 font-bold text-sm tracking-wide">接受挑戰</button>
+                      <button onclick="continueAfterBlackboard()" class="sys-button bg-white text-blue-900 px-8 py-3 font-bold text-sm tracking-wide">繼續閱讀</button>
+                    </div>
+                  </div>
+                </div>
+                <div id="bb-intro" class="hidden bb-panel p-4 md:p-5 mb-3 text-center">
+                  <div class="text-left max-w-3xl mx-auto">
+                    <div class="bb-cover-kicker">IMMERSIVE INTRO</div>
+                    <div class="bb-cover-title">黑板上的天書</div>
+                    <div class="bb-cover-desc mb-4">當黑板上的每個字你都看得見，卻依然無法理解意思，課堂就像一場沒有鑰匙的解碼任務。</div>
+                    <div class="game-rule-card mb-4">
+                      <p class="font-bold mb-2">挑戰方式：</p>
+                      <ul class="space-y-1">
+                        <li>左側會出現四句非中文句子，右側會出現四句中文翻譯。</li>
+                        <li>請把每一句原文拖曳到正確的中文翻譯。</li>
+                        <li>全部配對完成後，按下「送出答案」即可查看結果。</li>
+                      </ul>
+                    </div>
+                    <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                      <button onclick="bbStartGame()" class="sys-button bg-blue-900 text-white px-8 py-3 font-bold text-sm tracking-wide">開始挑戰</button>
+                      <button onclick="continueAfterBlackboard()" class="sys-button bg-white text-blue-900 px-8 py-3 font-bold text-sm tracking-wide">繼續閱讀</button>
+                    </div>
+                  </div>
+                </div>
+                <div id="bb-shell" class="hidden">
+                  <div id="bbCompact" class="bb-panel bb-match-shell p-3 md:p-4">
+                    <div id="bbGame" class="bb-match-game">
+                      <div class="bb-game-top">
+                        <div>
+                          <span class="bb-badge">BLACKBOARD MATCHING / DRAG MODE</span>
+                          <h3 class="bb-match-title">把黑板上的原文，連到正確的中文意思</h3>
+                        </div>
+                        <p id="bbMatchHint" class="bb-match-hint">拖曳左側句子到右側翻譯；若使用手機，也可以先點左側句子，再點右側翻譯。</p>
+                      </div>
+                      <div id="bbMatchBoard" class="board bb-match-board">
+                        <svg id="bbLines" class="bb-match-lines" aria-hidden="true"></svg>
+                        <div class="bb-column bb-source-column">
+                          <div class="bb-column-title">原文句子</div>
+                          <div id="bbSourceList" class="bb-card-list"></div>
+                        </div>
+                        <div class="bb-column bb-target-column">
+                          <div class="bb-column-title">中文翻譯</div>
+                          <div id="bbTargetList" class="bb-card-list"></div>
+                        </div>
+                      </div>
+                      <div class="bb-match-actions">
+                        <button id="bbSubmit" onclick="bbSubmitMatch()" class="sys-button bg-blue-900 text-white px-8 py-3 font-bold text-sm tracking-wide disabled:opacity-50 disabled:cursor-not-allowed" disabled>送出答案</button>
+                      </div>
+                    </div>
+                    <div id="bbSummary" class="hidden bb-result-page">
+                      <h3 class="text-2xl font-bold text-blue-900 mb-3">配對結果</h3>
+                      <p id="bbScoreText" class="text-gray-700 mb-5 leading-relaxed"></p>
+                      <div id="bbResultList" class="bb-result-list"></div>
+                      <div class="flex flex-wrap items-center justify-center gap-3 mt-7">
+                        <button onclick="bbStartGame()" class="sys-button bg-white text-slate-900 px-8 py-3 font-bold text-sm tracking-wide">再玩一次</button>
+                        <button onclick="continueAfterBlackboard()" class="sys-button bg-blue-900 text-white px-8 py-3 font-bold text-sm tracking-wide">繼續閱讀</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div></div>
+          </section>
+
+          <section id="chapter2" class="locked mb-12">
+            <div class="bg-blue-900 text-white px-3 py-1 text-xs font-mono inline-block mb-4">FILE_02: 支援體系與師資缺口</div><h2 class="text-xl font-bold mb-4 border-b-2 border-blue-900 pb-2">支援從哪來？非正式教學的隱憂</h2>
+            <p class="mb-4">制度上期待師資具備<span class="inline-term"><button type="button" class="inline-trigger"><span>「對外華語教學能力證書」</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></button><span class="tip">通過此檢定者，本報導統稱「華語教師」，即具有華語文教學專業者。然實務上無需具備此證照亦可指導跨轉生華語。</span></span>，但第一線情況往往不然。王宜靜最早的老師是替代役男，利用早自習教她發音；役期結束後便無人接手。達達則是由志工、大學生輪流抽離原班教學。支援由誰承接、能維持多久，始終缺乏穩定安排。濱江國小校長吳勝學坦言，校內無專責編制，師資多仰賴志工或退休教師補位。此外，亦有部分學校延請校內既有的<span class="inline-term"><button type="button" class="inline-trigger"><span>「新住民語文教學支援人員」</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></button><span class="tip">108學年度起，新住民語文納入語文領域，國小須於本土語或新住民語中擇一修習，國中與高中則列為選修。政府為因應教學需求，培訓具專長的教學支援人員，合格後以兼任方式授課，專長於新住民語文者稱為「新住民語文教學支援人員」。</span></span>（以下簡稱教支老師）指導跨轉生華語。</p>
+            <div class="space-y-4 mb-8"><p><span class="inline-term"><button type="button" class="inline-trigger"><span>跨國銜轉學生教育支持與服務精進</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></button><span class="tip">全稱為「跨國銜轉學生教育支持與服務精進計畫」，由教育部國民及學前教育署聯合國立高雄師範大學於2017年合作建構，旨在推動跨轉生相關政策及「跨轉生線上教育支持與服務系統」的建置。</span></span>專員鄭雅文指出，華語教學具高度專業，「你會注音符號，你英文也很好，但是你還真的不知道要怎麼教學生準確發出『ㄆ』的音。」教支老師黃怡貞是其中一例。他平時在學校教授泰語，後來接觸跨轉生華語教學的領域，卻連指導學生寫字都覺得困難。此外，也有部分跨轉生曾因教支老師的發音不夠標準，而不信任其華語輔導能力，這也凸顯跨轉生教育對華語專業人才的迫切需求。</p><p>其實，華語教師的必要條件不在需要會跨轉生的母語，而在應具有華語教學的專業背景。鄭雅文表示，教支老師雖熟悉跨轉生的母語，雙方卻因此容易直接使用母語溝通，且未必具有華語能力及教學專業，反而可能降低學生的華語學習速度。</p></div>
+            <div id="chapter2QuizSection" class="bg-gray-100 p-6 border-2 border-gray-300 my-8 shadow-inner"><div class="text-[10px] font-mono text-blue-800 mb-2">[SYSTEM_DATA_CHECK_03]</div><h3 class="font-bold mb-4 text-sm">依照前文中的專家建議，輔導跨轉生華語最核心的條件是什麼？</h3><div id="chapter2QuizContent" class="grid gap-2"><button onclick="submitChapter2Quiz(false,this)" class="sys-button bg-white p-3 text-xs text-left chapter2-option">A. 會講跨轉生母語，以增進教學效率</button><button onclick="submitChapter2Quiz(true,this)" class="sys-button bg-white p-3 text-xs text-left chapter2-option correct-chapter2-option">B. 具備華語教學專業，以設計適性教學</button><button onclick="submitChapter2Quiz(false,this)" class="sys-button bg-white p-3 text-xs text-left chapter2-option">C. 能說流利英文，且願意花心力陪伴學生</button><button onclick="submitChapter2Quiz(false,this)" class="sys-button bg-white p-3 text-xs text-left chapter2-option">D. 全職投入，並能長期指導個案學習</button></div><div id="chapter2QuizResult" class="hidden mt-4 p-4 bg-blue-50 border-l-4 border-blue-600"><p id="chapter2QuizFeedbackText" class="text-xs"></p><button onclick="unlockNext('chapter3')" class="mt-4 sys-button bg-white text-black px-4 py-2 text-[10px]">教學現場困境 (CH_03)</button></div></div>
+          </section>
+
+          <section id="chapter3" class="locked mb-12">
+            <div class="bg-blue-900 text-white px-3 py-1 text-xs font-mono inline-block mb-4">FILE_03: 教學現場困境</div><h2 class="text-xl font-bold mb-4 border-b-2 border-blue-900 pb-2">專業門檻與權益失衡</h2>
+            <p class="mb-4">對非華語專業出身的教支老師而言，華語教學並非本業，但基於照顧同鄉、心疼孩子，仍選擇承擔；然而政府未提供相應保障，形成工作負荷與待遇失衡。他們常扮演「橋樑」，協助學生與師長溝通並提供陪伴。柬埔寨語教支老師孫雅雯指出：「他不知道怎麼跟班導師溝通，我就會幫忙。」</p>
+            <p class="mb-4">然而，其授課多以鐘點計酬，缺乏正式教師的穩定薪資，且需奔波多校、聘用不穩。前立法委員林麗蟬提到，曾有教支老師反映，正式教師「把課本一塞」，便教支老師全權接手跨轉生的所有進度。整體反映制度未完善，也忽視其勞動權益。孫雅雯直言：「但沒有得到相對回報，每個人都會受不了」，並感嘆「不是因為稀少而珍貴，是稀少而不受重視」。</p>
+            <div id="sgBlock" class="sg-root my-8">
+              <div id="sgStart" class="sg-panel p-4 md:p-5 mb-3 text-center">
+                <div class="teacher-cover-shell">
+                  <img src="teacher-burn-cover.png" alt="燃燒熱情的教師首圖" class="teacher-cover-image">
+                  <div class="teacher-cover-actions">
+                    <button onclick="sgShowIntro()" class="sys-button bg-blue-900 text-white px-8 py-3 font-bold text-sm tracking-wide">接受挑戰</button>
+                    <button onclick="sgRevealReading()" class="sys-button bg-white text-blue-900 px-8 py-3 font-bold text-sm tracking-wide">繼續閱讀</button>
+                  </div>
+                </div>
+              </div>
+              <div id="sgIntro" class="hidden sg-panel p-4 md:p-5 mb-3 text-center">
+                <div class="text-left max-w-3xl mx-auto">
+                  <div class="bb-cover-kicker">SIMULATION MODULE</div>
+                  <div class="bb-cover-title">燃燒熱情的教師</div>
+                  <div class="bb-cover-desc mb-4">在有限支援中維持學生收穫、教學專業、教學熱忱與行政穩定，體驗第一線師資與制度之間的拉扯。</div>
+                  <div class="game-rule-card mb-4">
+                    <p class="font-bold mb-2">遊戲規則：</p>
+                    <ul class="space-y-1">
+                      <li>四項指標初始值均為 <strong>100%</strong>。</li>
+                      <li>錯誤決策會造成指標下降。</li>
+                      <li>任一指標低於 <strong>35%</strong> 時會出現警告；歸零則計畫失敗。</li>
+                    </ul>
+                  </div>
+                  <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                    <button onclick="sgStartGame()" class="sys-button bg-blue-900 text-white px-8 py-3 font-bold text-sm tracking-wide">開始模擬</button>
+                    <button onclick="sgRevealReading()" class="sys-button bg-white text-blue-900 px-8 py-3 font-bold text-sm tracking-wide">繼續閱讀</button>
+                  </div>
+                </div>
+              </div>
+              <div id="sgGame" class="hidden space-y-4"><div class="grid grid-cols-2 lg:grid-cols-4 gap-3"><div id="sgStat-student" class="sg-stat"><div class="flex justify-between mb-1 text-[11px] font-black uppercase"><span>學生收穫</span><span id="sgVal-student">100%</span></div><div class="w-full bg-slate-100 rounded-full h-2"><div id="sgBar-student" class="h-2 rounded-full bg-blue-600" style="width:100%"></div></div></div><div id="sgStat-professional" class="sg-stat"><div class="flex justify-between mb-1 text-[11px] font-black uppercase"><span>教學專業</span><span id="sgVal-professional">100%</span></div><div class="w-full bg-slate-100 rounded-full h-2"><div id="sgBar-professional" class="h-2 rounded-full bg-purple-600" style="width:100%"></div></div></div><div id="sgStat-energy" class="sg-stat"><div class="flex justify-between mb-1 text-[11px] font-black uppercase"><span>教學熱忱</span><span id="sgVal-energy">100%</span></div><div class="w-full bg-slate-100 rounded-full h-2"><div id="sgBar-energy" class="h-2 rounded-full bg-orange-600" style="width:100%"></div></div></div><div id="sgStat-admin" class="sg-stat"><div class="flex justify-between mb-1 text-[11px] font-black uppercase"><span>行政穩定</span><span id="sgVal-admin">100%</span></div><div class="w-full bg-slate-100 rounded-full h-2"><div id="sgBar-admin" class="h-2 rounded-full bg-green-600" style="width:100%"></div></div></div></div><div id="sgCard" class="sg-panel sg-frame overflow-hidden flex flex-col"><div class="sg-head"><div class="flex justify-between items-center mb-2"><span class="text-[11px] font-mono font-black opacity-80 tracking-[0.2em]">MONTH <span id="sgStageNum">1</span> / 5</span><i id="sgStageIcon" class="fas fa-landmark text-xl opacity-60"></i></div><h3 id="sgStageTitle" class="text-2xl font-black"></h3></div><div class="p-7 sg-scroll"><p id="sgStageDesc" class="text-slate-700 mb-6 leading-relaxed text-base font-medium"></p><div id="sgOptions" class="grid grid-cols-1 md:grid-cols-2 gap-5"></div></div></div></div>
+              <div id="sgResult" class="hidden sg-panel sg-frame p-10 text-center border-t-[10px] border-blue-900"><div id="sgResIcon" class="text-7xl mb-6"></div><h3 id="sgResTitle" class="text-4xl font-black mb-4"></h3><p id="sgResDesc" class="text-slate-600 mb-10 max-w-3xl mx-auto text-xl leading-relaxed"></p><div id="sgResStats" class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8"></div><div id="sgResActions" class="flex flex-wrap items-center justify-center gap-4"></div></div>
+            </div>
+            <div id="sgReading" class="hidden"><p id="sgReadingAnchor" class="mb-4">此外，中央補助由地方執行，各地作法不一。以台北市為例，申請需預先列明經費，但師資未定、學生中途轉入常使作業受阻。專案教師李璿瑞表示：「寫計畫不難，但前置作業會卡住。」再加上承辦人員頻繁更動，行政經驗難以累積，也限制資源運用成效。</p><div id="policySection" class="my-8"><details id="policyDetails" class="group bg-gray-50 border-2 border-blue-400 rounded-lg overflow-visible shadow-sm" ontoggle="togglePolicyPanel(this)"><summary class="p-4 bg-blue-50 cursor-pointer"><div class="sys-button policy-solution-button px-6 py-6 rounded-md flex items-center justify-between gap-6 bg-white"><div class="text-left"><div class="policy-solution-kicker">INTERACTIVE BUTTON</div><div class="policy-solution-title">點擊查看：各界提出的 3 種可能解方</div><div class="policy-solution-subtitle">展開後可閱讀方案比較與角色視角分析</div></div><div class="flex flex-col items-end shrink-0 policy-solution-right"><span class="policy-solution-arrow">▶</span><span class="policy-solution-toggle-label">點擊展開／收合</span></div></div></summary><div class="p-6 space-y-6"><div class="bg-white p-4 border-l-4 border-violet-600 shadow-sm"><div class="font-bold text-base text-violet-800 mb-2">方案一：培養退休教師成為專才</div><p class="text-base leading-relaxed text-gray-700">李璿瑞指出，退休教師熟悉教學與學校運作，「可能會比較知道一些教學方法」；鄭雅文也強調，具證照者未必有實務經驗，若退休教師再經培訓補足華語專業，是現階段扶助跨轉生學習華語最適合的人選。吳勝學則進一步指出，華語扶助教學時數少、報酬低，「這項工作跟正職領月薪的完全不一樣」，對年輕人吸引力有限；相較之下，已有退休金的教師較能接受，成為現階段較可行的人力來源。</p></div><div class="bg-white p-4 border-l-4 border-blue-600 shadow-sm"><div class="font-bold text-base text-blue-800 mb-2">方案二：增進教支老師華語能力</div><p class="text-base leading-relaxed text-gray-700">鄭雅文認為，大量的教支老師依然是跨轉生的潛在師資，若其能通過<span class="inline-term"><button type="button" class="inline-trigger"><span>「華語文能力測驗」</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></button><span class="tip">由教育部委託臺灣師範大學承辦，針對母語非華語者設計，供欲了解自身程度或在華語環境求學、工作者參加，評量包括聽力、閱讀、口語與寫作能力等項目。</span></span>中級，其字彙量介於2500至5000之間，「這樣就比較具有華語教學的能力。」</p></div><div class="bg-white p-4 border-l-4 border-green-600 shadow-sm"><div class="font-bold text-base text-green-800 mb-2">方案三：擴大大學生志工支援</div><p class="text-base leading-relaxed text-gray-700">台北市大安區新生國小志工微零（化名）表示，志工制度較具彈性，不必完全依循制式教學流程；且每週僅需40分鐘，學生可在不影響課業下穩定參與。林麗蟬亦認同，應鼓勵學生志工投入跨轉生的華語扶助教育，「讓學生在還沒進入教育職場之前，就先去接觸現場，是一件好事。」台灣越裔總會長陳凰鳳指出，由年齡相近的學長姊帶領，較易建立親近感。跨轉生達達亦分享，與20至25歲的陪伴者互動最自在，既能共享同齡話題，也能獲得成熟建議。</p></div></div></details><div id="personaCheckpoint3" class="mt-6 hidden"></div><div id="chapter4LoadWrap" class="mt-6 hidden"><button onclick="unlockNext('chapter4')" class="w-full bg-blue-900 text-white py-3 font-bold text-xs shadow-lg sys-button">載入最終展望報告 (CH_04)</button></div></div></div>
+          </section>
+
+          <section id="chapter4" class="locked mb-12"><div class="bg-blue-900 text-white px-3 py-1 text-xs font-mono inline-block mb-4">FILE_04: 未來展望</div><h2 class="text-xl font-bold mb-4 border-b-2 border-blue-900 pb-2">擴大保障，減少漏洞</h2><p class="mb-4">第一線教學現場持續尋找替代方案，但政府政策仍有改善空間。自2024年8月《新住民基本法》修正後，跨轉生適用對象已從東南亞七國擴大至更多國家，且不論父母為一臺一外或雙外籍，其子女皆可申請華語扶助課程。然而，父母皆為臺籍、卻因長期在海外成長而華語能力不足的學生，仍未被納入政策範圍。鄭雅文指出，全球化使人口移動愈加普遍，制度若能更全面開放，才能保障不同型態家庭，減少銜轉教育漏洞。</p><p class="mb-8">跨國銜轉已成全球性議題，政府雖已確立政策方向，也與澳洲、加拿大等移民國家交流，但基層對此仍缺乏一致認識。鄭雅文直言，「課堂上的老師常把跨轉生誤認為一般新住民子女。」若要擴充華語教學專業師資，仍須持續開設研習、推廣，才能讓更多人理解並正視跨轉生的教育問題，「跨國銜轉學生這一議題由來已久，然而在教學現場卻不一定獲得應有的關注與重視。」他認為，唯有累積經驗，才能及早修正問題，避免困境於第一線教育現場持續擴大。</p><div class="bg-blue-900 text-white p-10 text-center shadow-2xl"><div class="text-[10px] font-mono text-blue-300 mb-4 tracking-tighter">>>> FINAL_ANALYSIS_COMPLETE <<<</div><h2 id="endingTitle" class="text-2xl font-bold mb-6"></h2><div id="endingText" class="text-sm text-blue-100 mb-8 leading-relaxed space-y-4 text-left"></div><p id="ctaText" class="font-bold text-amber-400 text-lg mb-8"></p><button onclick="window.open('https://unews.nccu.edu.tw/unews/transnationalstudentsi-education-immigration/', '_blank')" class="w-full bg-white text-blue-900 py-3 text-xs font-bold sys-button flex items-center justify-center gap-2"><span>點擊查看全文：〈黑板上看不懂的文字　跨國銜轉教育的教學難題〉</span><span class="cta-finger" aria-hidden="true">👉</span></button></div></section>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="./data.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>
